@@ -1,0 +1,14 @@
+2024-09-29T14:12:00.108Z [DEBUG] provider.terraform-provider-aws_v5.69.0_x5: HTTP Request Sent: http.url=https://sts.ap-southeast-1.amazonaws.com/ net.peer.name=sts.ap-southeast-1.amazonaws.com rpc.service=STS @module=aws.aws-base http.request.header.amz_sdk_invocation_id=60ba3a02-b01e-4b20-8c33-c7d0e0e4ae8f http.request_content_length=43 http.user_agent="APN/1.0 HashiCorp/1.0 Terraform/1.9.6 (+https://www.terraform.io) terraform-provider-aws/5.69.0 (+https://registry.terraform.io/providers/hashicorp/aws) aws-sdk-go-v2/1.31.0 os/linux lang/go#1.23.1 md/GOOS#linux md/GOARCH#amd64 api/sts#1.31.2" rpc.system=aws-api tf_aws.sdk=aws-sdk-go-v2 tf_aws.signing_region="" tf_mux_provider="*schema.GRPCProviderServer" http.request.header.amz_sdk_request="attempt=1; max=25" tf_req_id=12cdf21e-737c-e13d-007f-b5478dcf3f5a tf_rpc=ConfigureProvider http.request.header.content_type=application/x-www-form-urlencoded aws.region=ap-southeast-1 http.method=POST
+  http.request.body=
+  | Action=GetCallerIdentity&Version=2011-06-15
+   http.request.header.authorization="AWS4-HMAC-SHA256 Credential=AKIA************KJ7A/20240929/ap-southeast-1/sts/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-date, Signature=*****" http.request.header.x_amz_date=20240929T141200Z rpc.method=GetCallerIdentity @caller=github.com/hashicorp/aws-sdk-go-base/v2@v2.0.0-beta.58/logging/tf_logger.go:47 tf_provider_addr=registry.terraform.io/hashicorp/aws timestamp=2024-09-29T14:12:00.108Z
+2024-09-29T14:12:01.303Z [DEBUG] provider.terraform-provider-aws_v5.69.0_x5: HTTP Response Received:
+  http.response.body=
+  | <ErrorResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+  |   <Error>
+  |     <Type>Sender</Type>
+  |     <Code>InvalidClientTokenId</Code>
+  |     <Message>The security token included in the request is invalid.</Message>
+  |   </Error>
+  |   <RequestId>b44af07d-b69d-4bdb-aaeb-578db2d828b4</RequestId>
+  | </ErrorResponse>
