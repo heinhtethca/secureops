@@ -64,6 +64,11 @@ data "aws_subnets" "db_subnets_ids" {
   }
 }
 
+data "aws_subnet" "db_subnet" {
+  for_each = toset(data.aws_subnets.db_subnets_ids.ids)
+  id       = each.value
+}
+
 
 
 

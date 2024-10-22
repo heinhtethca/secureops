@@ -27,10 +27,18 @@ resource "aws_route" "aws_db_route" {
   destination_cidr_block = data.hcp_hvn.hvn_cidr_block.cidr_block
 }
 
-resource "hcp_hvn_route" "hvn_vpc_route" {
+resource "hcp_hvn_route" "hvn_vpc_private_route" {
   for_each = data.aws_subnet.private_subnet
   hvn_link         = data.terraform_remote_state.vault_cluster.outputs.self_link
-  hvn_route_id     = "peering-route"
+  hvn_route_id     = each.key
+  destination_cidr = each.value.cidr_block
+  target_link      = hcp_aws_network_peering.hvn_aws_peer_requester.self_link
+}
+
+resource "hcp_hvn_route" "hvn_vpc_db_route" {
+  for_each = data.aws_subnet.db_subnet
+  hvn_link         = data.terraform_remote_state.vault_cluster.outputs.self_link
+  hvn_route_id     = each.key
   destination_cidr = each.value.cidr_block
   target_link      = hcp_aws_network_peering.hvn_aws_peer_requester.self_link
 }
