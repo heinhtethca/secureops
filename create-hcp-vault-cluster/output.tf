@@ -38,3 +38,8 @@ output "vault_private_endpoint_url" {
   description = "HCP Vault Cluster vault_public_endpoint_url"
   value = hcp_vault_cluster.vault_cluster.vault_private_endpoint_url
 }
+
+output "self_link" {
+  description = "HCP HVN Self Link"
+  value = hcp_hvn.vault_hvn.self_link
+}
