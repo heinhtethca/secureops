@@ -32,7 +32,7 @@ data "aws_arn" "peer" {
 }
   
 data "aws_route_table" "private_rt" {
-  subnet_id = data.aws_subnets.private_subnets_ids[0]
+  subnet_id = data.aws_subnets.private_subnets_ids.ids[0]
 }
 
 data "aws_subnets" "private_subnets_ids" {
@@ -51,7 +51,7 @@ data "aws_subnet" "private_subnet" {
 }
 
 data "aws_route_table" "db_rt" {
-  subnet_id = data.aws_subnets.db_subnets_ids[0]
+  subnet_id = data.aws_subnets.db_subnets_ids.ids[0]
 }
 
 data "aws_subnets" "db_subnets_ids" {
