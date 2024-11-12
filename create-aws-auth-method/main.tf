@@ -5,8 +5,8 @@ resource "vault_auth_backend" "vault_auth_aws" {
 
 resource "vault_aws_auth_backend_client" "vault_auth_aws" {
   backend    = vault_auth_backend.vault_auth_aws.path
-  access_key = aws_iam_access_key.ault_auth_admin.id
-  secret_key = aws_iam_access_key.ault_auth_admin.secret
+  access_key = aws_iam_access_key.vault_auth_admin.id
+  secret_key = aws_iam_access_key.vault_auth_admin.secret
 }
 
 resource "vault_policy" "db_policy" {
@@ -41,7 +41,7 @@ EOT
 
 
 resource "vault_aws_auth_backend_role" "vault_aws_auth_role" {
-  backend                         = vault_auth_backend.aws.path
+  backend                         = vault_auth_backend.vault_auth_aws.path
   role                            = "test-role"
   auth_type                       = "iam"
   bound_iam_principal_arns        = [aws_iam_role.vault_auth_aws_role.arn]
