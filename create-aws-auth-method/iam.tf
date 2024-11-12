@@ -49,3 +49,8 @@ data "aws_iam_policy_document" "assume_role" {
     }
   }
 }
+
+resource "aws_iam_instance_profile" "vault-client" {
+  name = "instead-profile-role"
+  role = aws_iam_role.vault_auth_aws_role.id
+}

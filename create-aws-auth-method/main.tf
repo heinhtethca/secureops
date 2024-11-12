@@ -42,7 +42,7 @@ EOT
 
 resource "vault_aws_auth_backend_role" "vault_aws_auth_role" {
   backend                         = vault_auth_backend.vault_auth_aws.path
-  role                            = "test-role"
+  role                            = "db-role"
   auth_type                       = "iam"
   bound_iam_principal_arns        = [aws_iam_role.vault_auth_aws_role.arn]
   token_ttl                       = 300
